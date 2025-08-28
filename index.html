@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zovastore Docs</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(160deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      text-align: center;
+      min-height: 100vh;
+    }
+    header {
+      padding: 50px 20px 20px;
+    }
+    header img {
+      width: 90px;
+      border-radius: 16px;
+    }
+    header h1 {
+      margin: 15px 0 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .search-box {
+      margin: 25px auto;
+      max-width: 600px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1em;
+      border: none;
+      border-radius: 12px;
+      outline: none;
+      background: #1e2a32;
+      color: white;
+    }
+    .search-box input::placeholder {
+      color: #bbb;
+    }
+    .faq-container {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: left;
+    }
+    .faq-item {
+      background: #1c2b36;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      transition: 0.3s;
+    }
+    .faq-item:hover {
+      background: #2b3f50;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .faq-item a {
+      text-decoration: none;
+      color: #4da6ff;
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://ugc.production.linktr.ee/87e09d4f-6a90-4f46-8c7b-71a20048f76a_1000903625.png?io=true&size=avatar-v3_0" alt="Zovastore Logo">
+    <h1>Zovastore Digital Store</h1>
+  </header>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Cari tutorial...">
+  </div>
+
+  <!-- FAQ List -->
+  <div class="faq-container" id="faqList">
+    <div class="faq-item"><a href="tutorial/order.html">Bagaimana cara order?</a></div>
+    <div class="faq-item"><a href="tutorial/ytprem.html">Bagaimana cara aktivasi YouTube Premium?</a></div>
+    <div class="faq-item"><a href="tutorial/javabedrock.html">Bagaimana cara aktivasi Minecraft Java Bedrock?</a></div>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const faqList = document.getElementById("faqList").getElementsByClassName("faq-item");
+
+    searchInput.addEventListener("keyup", function() {
+      let filter = searchInput.value.toLowerCase();
+      for (let i = 0; i < faqList.length; i++) {
+        let item = faqList[i];
+        let text = item.textContent.toLowerCase();
+        if (text.indexOf(filter) > -1) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      }
+    });
+  </script>
+</body>
+</html>
